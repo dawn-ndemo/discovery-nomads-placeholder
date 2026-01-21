@@ -1,163 +1,240 @@
+/* --- CSS Styles --- */
+
+/* General Reset to make things look consistent across browsers */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* color: #000; */
 }
 
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    /* background: linear-gradient(135deg, #d3a869 0%, #f5d762 100%); */
-    min-height: 100vh;
+
+/* FONTS for DS */
+/* --- 1. Dessau Light (Weight: 300) --- */
+@font-face {
+    font-family: 'Dessau';
+    src: url('fonts/Dessau-Light.otf') format('opentype');
+    font-weight: 300; 
+    font-style: normal;
+}
+
+/* --- 2. Dessau Medium (Weight: 500) --- */
+@font-face {
+    font-family: 'Dessau';
+    src: url('fonts/Dessau-Medium.otf') format('opentype');
+    font-weight: 500; 
+    font-style: normal;
+}
+
+/* --- 3. Dessau Demibold (Weight: 600) --- */
+@font-face {
+    font-family: 'Dessau';
+    src: url('fonts/Dessau-Demibold.otf') format('opentype');
+    font-weight: 600; 
+    font-style: normal;
+}
+
+/* --- 4. Dessau Bold (Weight: 700) --- */
+@font-face {
+    font-family: 'Dessau';
+    src: url('fonts/Dessau-Bold.otf') format('opentype');
+    font-weight: 700; 
+    font-style: normal;
+}
+
+/* --- 5. Dessau Heavy (Weight: 900) --- */
+@font-face {
+    font-family: 'Dessau';
+    src: url('fonts/Dessau-Heavy.otf') format('opentype');
+    font-weight: 900; 
+    font-style: normal;
+}
+
+
+body,
+html {
+    height: 100%;
+    font-family: "Poppins", sans-serif;
+    color: #ffffff;
+    overflow: hidden;
+    /* Prevents scrolling if content is short */
+}
+
+/* The main container for the background image */
+.bg-container {
+    background-image: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2073&auto=format&fit=crop");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 100%;
+    width: 100%;
     display: flex;
-    align-items: center;
     justify-content: center;
-    color: #000000;
-    overflow-x: hidden;
-}
-
-.container {
+    align-items: center;
     text-align: center;
+}
+
+/* A dark overlay to ensure text is readable on top of the image */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /* Darkens image by 50% */
+    z-index: 1;
+}
+
+/* The main content wrapper */
+.content-wrapper {
+    position: relative;
+    z-index: 2;
+    /* Sits on top of overlay */
     padding: 2rem;
-    max-width: 800px;
-    animation: fadeIn 1s ease-in;
+    max-width: 600px;
+    width: 90%;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
 
-.logo {
-    width: 180px;
-    height: 180px;
-    margin: 0 auto 2rem;
-    background: rgb(255, 255, 255);
-    border-radius: 5%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.2);
-}
-
-.logo img {
-    max-width: 100%;
-    max-height: 100%;
-    margin: auto;
-}
-
-.logo-placeholder {
+.logo img{
     font-size: 3rem;
-    font-weight: bold;
-    color: rgba(255, 255, 255, 0.9);
-}
-
-h1 {
-    font-size: 3.5rem;
     margin-bottom: 1rem;
-    font-weight: 700;
-    letter-spacing: -1px;
+    display: inline-block;
+    width: auto; height: 120px;
 }
 
-.construction {
-    font-size: 1.8rem;
-    margin-bottom: 2rem;
-    font-weight: 300;
-    letter-spacing: 2px;
+h1.business-name {
+    font-family: "Dessau","Poppins", sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
     text-transform: uppercase;
 }
 
-.gif-container {
-    margin: 2rem auto;
-    max-width: 400px;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-}
-
-.gif-container img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.description {
-    font-size: 1.2rem;
-    margin-bottom: 3rem;
-    opacity: 0.9;
-    line-height: 1.6;
-}
-
-.contact-section {
-    margin: 3rem 0;
-}
-
-.email {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 1.1rem;
-    color: #000;
-    text-decoration: none;
-    background: rgba(231, 133, 4, 0.877);
-    padding: 12px 24px;
-    border-radius: 50px;
-    backdrop-filter: blur(10px);
-    border: 3px solid rgba(30, 5, 5, 0.252);
-    transition: all 0.3s ease;
+h2.sub-headline {
+    font-size: 1.3rem;
+    font-weight: 300;
     margin-bottom: 2rem;
+    opacity: 0.9;
 }
 
-.email:hover {
-    background: #fe6404e6;
-    transform: translateY(-2px);
+.main-message {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    opacity: 0.85;
+}
+
+/* Call to Action Button Styles */
+.cta-button {
+    display: inline-block;
+    background-color: #00b894;
+    color: white;
+    padding: 15px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 184, 148, 0.3);
+    margin-bottom: 3rem;
+}
+
+.cta-button:hover {
+    background-color: #019374;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 184, 148, 0.5);
+}
+
+/* Footer & Social Links */
+.footer {
+    margin-top: auto;
+}
+
+.footer p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    opacity: 0.7;
 }
 
 .social-links {
     display: flex;
-    gap: 20px;
     justify-content: center;
+    gap: 20px;
     flex-wrap: wrap;
-    margin-top: 2rem;
 }
 
-.social-link {
-    width: 60px;
-    height: 60px;
-    background: rgba(25, 7, 7, 0.741);
-    border-radius: 50%;
+.social-links a {
+    color: white;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+    text-decoration: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: none;
-    color: #fff;
-    font-size: 1.5rem;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(177, 5, 5, 0.712);
-    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
 }
 
-.social-link:hover {
-    /* background: rgba(255, 255, 255, 0.25); */
-    background: #fe6404e6;
-    transform: translateY(-5px) scale(1.1);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+/* Specific hover colors for brands */
+.social-links a:hover {
+    opacity: 1;
+    transform: scale(1.1);
 }
 
-.whatsapp {
-    /* background: #075a25d1; */
-    background: #14833d66;
-    border-color: #24e46bda;
+.social-links a.wa:hover {
+    background: #25d366;
 }
 
-.whatsapp:hover {
-    background: #075a25d1;
+.social-links a.ig:hover {
+    background: #e1306c;
 }
 
-@media (max-width: 768px) {
-    h1 { font-size: 2.5rem; }
-    .construction { font-size: 1.3rem; }
-    .description { font-size: 1rem; }
-    .gif-container { max-width: 300px; }
+.social-links a.tt:hover {
+    background: #000000;
+}
+
+.social-links a.x:hover {
+    background: #000000;
+}
+
+.social-links a.fb:hover {
+    background: #4267b2;
+}
+
+.social-links a.em:hover {
+    background: #d44638;
+}
+
+/* Mobile Responsiveness Adjustments */
+@media (max-width: 480px) {
+    h1.business-name {
+        font-size: 1.8rem;
+    }
+
+    h2.sub-headline {
+        font-size: 1rem;
+    }
+
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 0.9rem;
+        width: 100%;
+    }
+
+    .social-links {
+        gap: 15px;
+    }
+
+    .social-links a {
+        font-size: 1.2rem;
+        width: 35px;
+        height: 35px;
+    }
 }
